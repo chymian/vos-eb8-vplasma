@@ -1,0 +1,38 @@
+# install zerotier one
+#
+apt-get update -y
+apt-get install -y gpg
+chmod a+r /tmp/zt-gpg-key
+	echo
+	echo '*** Installing zeortier-one package...'
+
+	apt-get install -y zerotier-one
+
+echo
+echo '*** Enabling and starting ZeroTier service...'
+
+if [ -e /usr/bin/systemctl -o -e /usr/sbin/systemctl -o -e /sbin/systemctl -o -e /bin/systemctl ]; then
+	$SUDO systemctl enable zerotier-one
+	$SUDO systemctl start zerotier-one
+	if [ "$?" != "0" ]; then
+		echo
+		echo '*** Package installed but cannot start service! You may be in a Docker'
+		echo '*** container or using a non-standard init service.'
+		echo
+		exit 1
+	fi
+fi
+
+echo
+echo '*** Waiting for identity generation...'
+
+while [ ! -f /var/lib/zerotier-one/identity.secret ]; do
+	sleep 1
+done
+
+echo
+echo "*** Success! You are ZeroTier address [ `cat /var/lib/zerotier-one/identity.public | cut -d : -f 1` ]."
+echo
+
+exit 0
+
