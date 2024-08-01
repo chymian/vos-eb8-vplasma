@@ -38,10 +38,10 @@ stages:
       - bridge-utils
 
 
-  - name: example-commands # Sample module demonstrating the Shell module with custom commands
-    type: shell
-    commands:
-    - echo Example output
+  - name: zerotier-install # Sample module demonstrating the Shell module with custom commands
+    type: includes
+    includes:
+      - modules/60-install-zerotier
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
