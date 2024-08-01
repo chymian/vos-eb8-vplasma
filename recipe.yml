@@ -36,7 +36,8 @@ stages:
       - direnv
       - autojump
       - bridge-utils
-
+      - bind9-dnsutils
+      - net-tools
 
   - name: zerotier-install # Sample module demonstrating the Shell module with custom commands
     type: includes
