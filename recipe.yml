@@ -43,6 +43,11 @@ stages:
     includes:
       - modules/60-install-zerotier
 
+  - name: yadm setup
+    type: includes
+    includes:
+      - modules/61-yadm-setup
+
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
     includes:
