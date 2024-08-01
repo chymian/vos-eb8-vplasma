@@ -5,13 +5,11 @@ on:
     branches: [ "main" ]
     tags:
       - '*'
-  schedule:
-    - cron: '21 */6 * * *'
   pull_request:
   workflow_dispatch:
 
 env:
-  CUSTOM_IMAGE_NAME: custom
+  CUSTOM_IMAGE_NAME: vos-eb8-custom
   BUILDX_NO_DEFAULT_ATTESTATIONS: 1
 
 jobs:
@@ -35,7 +33,7 @@ jobs:
 
     - name: Verify Base Image Integrity
       run: |
-        gh attestation verify oci://ghcr.io/${{ env.BASE_IMAGE }} --owner Vanilla-OS
+        gh attestation verify oci://ghcr.io/${{ env.BASE_IMAGE }} --owner Kanola-Images
       env:
         GH_TOKEN: ${{ github.token }}
 
