@@ -41,7 +41,7 @@ stages:
       - os-prober
       - tlp
 
-  - name: zerotier-install # Sample module demonstrating the Shell module with custom commands
+  - name: zerotier install # Sample module demonstrating the Shell module with custom commands
     type: includes
     includes:
       - modules/60-install-zerotier
@@ -50,6 +50,11 @@ stages:
     type: includes
     includes:
       - modules/61-yadm-setup
+
+  - name: zfs setup
+    type: includes
+    includes:
+      - modules/62-zfs-setup
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes

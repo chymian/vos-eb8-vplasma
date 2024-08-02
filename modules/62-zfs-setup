@@ -1,0 +1,7 @@
+name: install-zfs
+type: shell
+commands:
+ - apt-get update -y
+ - apt-get install -y dkms build-essential zfs-dkms zfsutils-linux zfs-zed zfs-initramfs
+ - systemctl enable zfs-load-key.service
+
