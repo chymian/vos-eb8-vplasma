@@ -39,6 +39,7 @@ stages:
       - bind9-dnsutils
       - net-tools
       - os-prober
+      - tlp
 
   - name: zerotier-install # Sample module demonstrating the Shell module with custom commands
     type: includes
