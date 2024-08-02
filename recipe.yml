@@ -38,6 +38,7 @@ stages:
       - bridge-utils
       - bind9-dnsutils
       - net-tools
+      - os-prober
 
   - name: zerotier-install # Sample module demonstrating the Shell module with custom commands
     type: includes
