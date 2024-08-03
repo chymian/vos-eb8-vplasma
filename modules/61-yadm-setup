@@ -1,5 +1,0 @@
-name: yadm-setup
-type: shell
-commands:
-  - yadm clone https://git.eb8.org/guenter/dotfiles
-  - yadm reset --hard

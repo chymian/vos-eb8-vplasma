@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  CUSTOM_IMAGE_NAME: vos-eb8-custom
+  CUSTOM_IMAGE_NAME: vos-eb8-vplasma
   BUILDX_NO_DEFAULT_ATTESTATIONS: 1
 
 jobs:
@@ -35,7 +35,7 @@ jobs:
 
     - name: Verify Base Image Integrity
       run: |
-        gh attestation verify oci://ghcr.io/${{ env.BASE_IMAGE }} --owner Kanola-Images
+        gh attestation verify oci://ghcr.io/${{ env.BASE_IMAGE }} --owner chymian
       env:
         GH_TOKEN: ${{ github.token }}
 
