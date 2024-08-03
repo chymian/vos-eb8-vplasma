@@ -18,28 +18,28 @@ stages:
   - name: init-setup
     type: shell
     commands:
-      - lpkg --unlock
-      - apt-get update
+    - lpkg --unlock
+    - apt-get update
 
   # Put your custom actions behind this comment
 
   - name: vm-tools
     type: apt
     source:
-    packages:
+      packages:
       - open-vm-tools
       - open-vm-tools-desktop
 
   - name: qemu
     type: apt
     source:
-    packages:
+      packages:
       - qemu-guest-agent
 
   - name: spice
     type: apt
     source:
-    packages:
+      packages:
       - spice-vdagent
       - spice-webdavd
 
